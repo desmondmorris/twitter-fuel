@@ -1,0 +1,21 @@
+{
+  "name": "twitter-fuel",
+  "version": "0.0.0-3",
+  "description": "A little app that updates twitter profile descriptions with nike fuel data",
+  "main": "app.js",
+  "repository": "",
+  "author": "Desmond Morris",
+  "dependencies": {
+    "twitter": "*",
+    "node-nike": "*",
+    "cron": "*",
+    "numeral": "*"
+  },
+  "subdomain": "desmondmorris.twitter-fuel",
+  "scripts": {
+    "start": "app.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  }
+}
