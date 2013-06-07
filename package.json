@@ -1,6 +1,6 @@
 {
   "name": "twitter-fuel",
-  "version": "0.0.0-3",
+  "version": "0.0.0-10",
   "description": "A little app that updates twitter profile descriptions with nike fuel data",
   "main": "app.js",
   "repository": "",

@@ -17,7 +17,6 @@ var cronTab = {
   cronTime: '*/10 * * * *',
   start: false
 };
-
 cronTab.onTick = function() {
   twit.showUser('desmondmorris', function(user){
     var description = user.description;
@@ -42,6 +41,4 @@ cronTab.onTick = function() {
 var job = new cronJob(cronTab).start();
 
 
-https.createServer(function (req, res) {
- res.end('hi');
-}).listen(8080);
+https.createServer({}).listen(8080);
