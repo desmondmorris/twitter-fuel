@@ -4,6 +4,8 @@ var twitter = require('twitter')
   , https = require('https')
   , numeral = require('numeral');
 
+var interval = "*/1 * * * *";
+
 var twit = new twitter({
   consumer_key: process.env.TWITTER_FUEL_TWITTER_CONSUMER_KEY || '',
   consumer_secret: process.env.TWITTER_FUEL_TWITTER_CONSUMER_SECRET || '',
@@ -14,7 +16,7 @@ var twit = new twitter({
 var nike = new Nike(process.env.TWITTER_FUEL_NIKE_ACCESS_TOKEN);
 
 var cronTab = {
-  cronTime: '*/10 * * * *',
+  cronTime: interval,
   start: false
 };
 cronTab.onTick = function() {
@@ -25,12 +27,10 @@ cronTab.onTick = function() {
       if ( data && ("summaries" in data) ) {
         var fuel = data.summaries[0].records[0].recordValue;
 
+        console.log(fuel);
         var matches = description.match("( :: #NikeFuel: [0-9,]+$)");
-
         var copy = ' :: #NikeFuel: ' + numeral(fuel).format('0,0');
-
         params.description = !matches ? params.description + copy : description.replace(matches[0], copy);
-
         twit.updateProfile(params, function(ret){
           console.log('Description updated: ' + ret.description);
         });
@@ -39,6 +39,5 @@ cronTab.onTick = function() {
   });
 }
 var job = new cronJob(cronTab).start();
-
 
 https.createServer({}).listen(8080);

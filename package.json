@@ -1,12 +1,12 @@
 {
   "name": "twitter-fuel",
-  "version": "0.0.0-10",
+  "version": "0.0.0-18",
   "description": "A little app that updates twitter profile descriptions with nike fuel data",
   "main": "app.js",
   "repository": "",
   "author": "Desmond Morris",
   "dependencies": {
-    "twitter": "*",
+    "twitter": "git://github.com/desmondmorris/node-twitter.git#master",
     "node-nike": "*",
     "cron": "*",
     "numeral": "*"
